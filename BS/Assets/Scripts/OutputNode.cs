@@ -13,13 +13,12 @@ public class OutputNode : Node
     {
         index = Int32.Parse(gameObject.name);
         BitTextOut = GetComponentInChildren<TextMeshProUGUI>();
-        base.ShowConnections();
+        base.AddConnections();
     }
-        
 
     private void Update()
     {
-        base.ShowConnections();
+        base.UpdateConnections();
     }
 
     public void OutputBit()
@@ -47,5 +46,5 @@ public class OutputNode : Node
         }
 
     }
-    
+
 }

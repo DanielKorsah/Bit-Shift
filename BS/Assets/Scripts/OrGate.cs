@@ -7,12 +7,12 @@ public class OrGate : Node
 
     private void Start()
     {
-        base.ShowConnections();
+        base.AddConnections();
     }
 
     private void Update()
     {
-        base.ShowConnections();
+        base.UpdateConnections();
     }
 
     public override bool? GetOutput()

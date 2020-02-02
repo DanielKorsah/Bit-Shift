@@ -35,7 +35,7 @@ public class InputNode : Node
 
     private void Update()
     {
-        
+
     }
 
     public void FlipBit()
