@@ -18,7 +18,7 @@ public class NotGate : Node
     public override bool? GetOutput()
     {
         if (this.inputs[0].GetOutput() == null)
-            Debug.LogError("Null node input");
+            Debug.LogWarning("Null node input");
         return !this.inputs[0].GetOutput();
     }
 }

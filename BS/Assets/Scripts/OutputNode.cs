@@ -14,11 +14,13 @@ public class OutputNode : Node
         index = Int32.Parse(gameObject.name);
         BitTextOut = GetComponentInChildren<TextMeshProUGUI>();
         base.AddConnections();
+        OutputBit();
     }
 
     private void Update()
     {
         base.UpdateConnections();
+        OutputBit();
     }
 
     public void OutputBit()
@@ -28,7 +30,7 @@ public class OutputNode : Node
             //error check
             if (inputs[0].GetOutput() == null)
             {
-                Debug.LogError("Null input");
+                Debug.LogWarning("Null input");
             }
 
             if (inputs[0].GetOutput() == true)
@@ -42,7 +44,7 @@ public class OutputNode : Node
                 BitTextOut.text = "0";
             }
 
-            Debug.Log(LogicManager.OutputByteData.ToString());
+            //Debug.Log(LogicManager.OutputByteData.ToString());
         }
 
     }

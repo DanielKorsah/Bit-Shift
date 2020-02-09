@@ -143,6 +143,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputs: []
+  lines: []
+  lineMaterial: {fileID: 0}
+  Outputs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3690308952309189676
 GameObject:
   m_ObjectHideFlags: 0

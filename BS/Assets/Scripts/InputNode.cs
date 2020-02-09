@@ -16,7 +16,7 @@ public class InputNode : Node
 
     private TextMeshProUGUI BitText;
 
-    void Start()
+    void Awake()
     {
         BitText = GetComponentInChildren<TextMeshProUGUI>();
         index = Int32.Parse(gameObject.name);

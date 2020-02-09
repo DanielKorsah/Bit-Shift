@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class AndGate : Node
 {
+    private void Start()
+    {
+        base.AddConnections();
+    }
+
+    private void Update()
+    {
+        base.UpdateConnections();
+    }
+
     public override bool? GetOutput()
     {
         //error checking
