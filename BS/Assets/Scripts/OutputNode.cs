@@ -25,15 +25,15 @@ public class OutputNode : Node
 
     public void OutputBit()
     {
-        if (inputs.Count != 0)
+        if (Inputs.Count != 0)
         {
             //error check
-            if (inputs[0].GetOutput() == null)
+            if (Inputs[0].GetOutput() == null)
             {
                 Debug.LogWarning("Null input");
             }
 
-            if (inputs[0].GetOutput() == true)
+            if (Inputs[0].GetOutput() == true)
             {
                 LogicManager.OutputByteData[index] = true;
                 BitTextOut.text = "1";

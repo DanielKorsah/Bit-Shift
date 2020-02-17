@@ -1,10 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NotGate : Node
+public class RelayNode : Node
 {
-
+    // Start is called before the first frame update
     private void Start()
     {
         base.AddConnections();
@@ -19,6 +19,6 @@ public class NotGate : Node
     {
         if (this.Inputs[0].GetOutput() == null)
             Debug.LogWarning("Null node input");
-        return !this.Inputs[0].GetOutput();
+        return this.Inputs[0].GetOutput();
     }
 }

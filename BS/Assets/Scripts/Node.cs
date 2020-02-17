@@ -5,11 +5,13 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
 
-    [SerializeField] protected List<Node> inputs;
-
     [SerializeField] protected List<LineRenderer> lines = new List<LineRenderer>();
 
     [SerializeField] protected Material lineMaterial;
+
+    public List<Node> Inputs;
+
+    public Color color;
 
     //nullable bool. retun null be default if ther is a problem
     public virtual bool? GetOutput()
@@ -20,25 +22,26 @@ public class Node : MonoBehaviour
 
     public virtual void AddConnections()
     {
-        if (inputs.Count != 0)
+        if (Inputs.Count != 0)
         {
-            for (int i = 0; i < inputs.Count; i++)
+            for (int i = 0; i < Inputs.Count; i++)
             {
 
                 LineRenderer lr = transform.GetChild(i).GetComponents<LineRenderer>() [0];
                 lr.material = lineMaterial;
                 lr.startWidth = 0.1f;;
                 lr.endWidth = 0.1f;
+                lr.numCapVertices = 2;
 
-                if (inputs[i].GetOutput() == false)
+                if (Inputs[i].GetOutput() == false)
                 {
-                    lr.startColor = Color.red;
-                    lr.endColor = Color.red;
+                    lr.startColor = new Color(0.784f, 0.322f, 0f);
+                    lr.endColor = new Color(0.784f, 0.322f, 0f);
                 }
-                else if (inputs[i].GetOutput() == true)
+                else if (Inputs[i].GetOutput() == true)
                 {
-                    lr.startColor = Color.green;
-                    lr.endColor = Color.green;
+                    lr.startColor = new Color(0.784f, 0.322f, 0f);
+                    lr.endColor = new Color(0.784f, 0.322f, 0f);
                 }
                 else
                 {
@@ -47,7 +50,7 @@ public class Node : MonoBehaviour
                 }
 
                 lines.Add(lr);
-                lines[i].SetPositions(new Vector3[] { lr.transform.position, inputs[i].transform.position });
+                lines[i].SetPositions(new Vector3[] { lr.transform.position, Inputs[i].transform.position });
             }
         }
 
@@ -55,26 +58,26 @@ public class Node : MonoBehaviour
 
     public virtual void UpdateConnections()
     {
-        if (inputs.Count != 0)
+        if (Inputs.Count != 0)
         {
-            for (int i = 0; i < inputs.Count; i++)
+            for (int i = 0; i < Inputs.Count; i++)
             {
-                if (inputs[i].GetOutput() == false)
+                if (Inputs[i].GetOutput() == false)
                 {
-                    lines[i].startColor = Color.red;
-                    lines[i].endColor = Color.red;
+                    lines[i].startColor = new Color(0.784f, 0.322f, 0f);
+                    lines[i].endColor = new Color(0.784f, 0.322f, 0f);
                 }
-                else if (inputs[i].GetOutput() == true)
+                else if (Inputs[i].GetOutput() == true)
                 {
-                    lines[i].startColor = Color.green;
-                    lines[i].endColor = Color.green;
+                    lines[i].startColor = new Color(0.784f, 0.322f, 0f);
+                    lines[i].endColor = new Color(0.784f, 0.322f, 0f);
                 }
                 else
                 {
                     lines[i].startColor = Color.blue;
                     lines[i].endColor = Color.blue;
                 }
-                lines[0].SetPositions(new Vector3[] { lines[0].transform.position, inputs[0].transform.position });
+                lines[i].SetPositions(new Vector3[] { lines[i].transform.position, Inputs[i].transform.position });
             }
         }
 
@@ -82,7 +85,7 @@ public class Node : MonoBehaviour
 
     public void DebugIO()
     {
-        Debug.Log(this.gameObject.name + "\nInput 1: " + inputs[0].GetOutput() + "\nOutput: " + GetOutput());
+        Debug.Log(this.gameObject.name + "\nInput 1: " + Inputs[0].GetOutput() + "\nOutput: " + GetOutput());
     }
 
 }

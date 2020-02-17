@@ -19,12 +19,12 @@ public class OrGate : Node
     {
 
         //error checking
-        if (inputs[0].GetOutput() == null || inputs[1].GetOutput() == null)
+        if (Inputs[0].GetOutput() == null || Inputs[1].GetOutput() == null)
         {
             Debug.LogError("Null node input");
         }
 
-        if (inputs[0].GetOutput() == true || inputs[1].GetOutput() == true)
+        if (Inputs[0].GetOutput() == true || Inputs[1].GetOutput() == true)
         {
             return true;
         }
