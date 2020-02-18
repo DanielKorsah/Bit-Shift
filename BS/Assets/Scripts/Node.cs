@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class Node : MonoBehaviour
 {
 
@@ -51,6 +52,12 @@ public class Node : MonoBehaviour
 
                 lines.Add(lr);
                 lines[i].SetPositions(new Vector3[] { lr.transform.position, Inputs[i].transform.position });
+
+                //if input has an allignment component set it's output transform equal to the correct input pointon this node
+                if (Inputs[i].TryGetComponent(out NodeAllignment allingment))
+                {
+                    allingment.OutputTransform = lr.transform;
+                }
             }
         }
 
