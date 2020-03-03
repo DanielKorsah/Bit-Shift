@@ -1,0 +1,27 @@
+{
+    "BackgroundIndex": 0,
+    "OnWireIndex": 0,
+    "OffWireIndex": 0,
+    "BackgroundColourObjects": [
+        {
+            "Name": "PCB_Green",
+            "Colour": [
+                0,
+                0.2358491,
+                0,
+                1
+            ]
+        }
+    ],
+    "WireColourObjects": [
+        {
+            "Name": "Copper",
+            "Colour": [
+                0.7843137,
+                0.3215686,
+                0,
+                1
+            ]
+        }
+    ]
+}

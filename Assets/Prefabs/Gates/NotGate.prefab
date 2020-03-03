@@ -95,10 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b82def60e229149b623c0c3b537fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputs:
+  lines:
+  - {fileID: 281189820426954404}
+  lineMaterial: {fileID: 2100000, guid: 81d5920bbfedd6643a7624afba198a36, type: 2}
+  Inputs:
   - {fileID: 0}
-  lines: []
-  lineMaterial: {fileID: 2100000, guid: 63b86a308d705f14db36eb692865b1d8, type: 2}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &281189820426954426
 GameObject:
   m_ObjectHideFlags: 0

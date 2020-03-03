@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class Node : MonoBehaviour
 {
 
@@ -23,7 +23,8 @@ public class Node : MonoBehaviour
 
     public virtual void AddConnections()
     {
-        if (Inputs.Count != 0)
+        //for nodes with inputs
+        if (Inputs.Count != 0 && Inputs[0] != null)
         {
             for (int i = 0; i < Inputs.Count; i++)
             {
@@ -60,12 +61,22 @@ public class Node : MonoBehaviour
                 }
             }
         }
+        //for nodes without inputs or null inputs
+        else
+        {
+            for (int i = 0; i < Inputs.Count; i++)
+            {
+                LineRenderer lr = transform.GetChild(i).GetComponents<LineRenderer>() [0];
+                lr.positionCount = 0;
+            }
+
+        }
 
     }
 
     public virtual void UpdateConnections()
     {
-        if (Inputs.Count != 0)
+        if (Inputs.Count != 0 && Inputs[0] != null)
         {
             for (int i = 0; i < Inputs.Count; i++)
             {

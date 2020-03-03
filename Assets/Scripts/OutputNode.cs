@@ -25,26 +25,36 @@ public class OutputNode : Node
 
     public void OutputBit()
     {
+        //if it has input
         if (Inputs.Count != 0)
         {
             //error check
-            if (Inputs[0].GetOutput() == null)
+            try
             {
-                Debug.LogWarning("Null input");
+                if (Inputs[0].GetOutput() == true)
+                {
+                    LogicManager.OutputByteData[index] = true;
+                    BitTextOut.text = "1";
+                }
+                else
+                {
+                    LogicManager.OutputByteData[index] = false;
+                    BitTextOut.text = "0";
+                }
             }
-
-            if (Inputs[0].GetOutput() == true)
+            catch (NullReferenceException e)
             {
-                LogicManager.OutputByteData[index] = true;
-                BitTextOut.text = "1";
-            }
-            else
-            {
-                LogicManager.OutputByteData[index] = false;
-                BitTextOut.text = "0";
+                BitTextOut.text = "E";
+                Debug.LogError("Invalid Node Params - Check input size matches connected inputs on: " + gameObject.name);
+                Debug.LogError(e);
             }
 
             //Debug.Log(LogicManager.OutputByteData.ToString());
+        }
+        //default to zero
+        else
+        {
+            BitTextOut.text = "0";
         }
 
     }

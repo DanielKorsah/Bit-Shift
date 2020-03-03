@@ -1,0 +1,44 @@
+{
+  "BackgroundIndex": 2,
+  "OnWireIndex": 3,
+  "OffWireIndex": 1,
+  "BackgroundColourObjects": [
+    {
+      "Name": "Yolo",
+      "Colour": {
+        "r": 1.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+      }
+    },
+    {
+      "Name": "Swaggins",
+      "Colour": {
+        "r": 0.0,
+        "g": 0.05117798,
+        "b": 1.0,
+        "a": 1.0
+      }
+    },
+    {
+      "Name": "Get",
+      "Colour": {
+        "r": 0.05306077,
+        "g": 1.0,
+        "b": 0.0,
+        "a": 1.0
+      }
+    },
+    {
+      "Name": "Krunk",
+      "Colour": {
+        "r": 1.0,
+        "g": 0.956346035,
+        "b": 0.0,
+        "a": 1.0
+      }
+    }
+  ],
+  "WireColourObjects": []
+}
