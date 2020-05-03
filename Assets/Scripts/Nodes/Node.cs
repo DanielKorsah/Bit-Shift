@@ -37,13 +37,13 @@ public class Node : MonoBehaviour
 
                 if (Inputs[i].GetOutput() == false)
                 {
-                    lr.startColor = new Color(0.784f, 0.322f, 0f);
-                    lr.endColor = new Color(0.784f, 0.322f, 0f);
+                    lr.startColor = Settings.WireColours[Settings.OffWireIndex].Colour;
+                    lr.endColor = Settings.WireColours[Settings.OffWireIndex].Colour;
                 }
                 else if (Inputs[i].GetOutput() == true)
                 {
-                    lr.startColor = new Color(0.784f, 0.322f, 0f);
-                    lr.endColor = new Color(0.784f, 0.322f, 0f);
+                    lr.startColor = Settings.WireColours[Settings.OnWireIndex].Colour;
+                    lr.endColor = Settings.WireColours[Settings.OnWireIndex].Colour;
                 }
                 else
                 {
@@ -82,13 +82,13 @@ public class Node : MonoBehaviour
             {
                 if (Inputs[i].GetOutput() == false)
                 {
-                    lines[i].startColor = new Color(0.784f, 0.322f, 0f);
-                    lines[i].endColor = new Color(0.784f, 0.322f, 0f);
+                    lines[i].startColor = Settings.WireColours[Settings.OffWireIndex].Colour;
+                    lines[i].endColor = Settings.WireColours[Settings.OffWireIndex].Colour;
                 }
                 else if (Inputs[i].GetOutput() == true)
                 {
-                    lines[i].startColor = new Color(0.784f, 0.322f, 0f);
-                    lines[i].endColor = new Color(0.784f, 0.322f, 0f);
+                    lines[i].startColor = Settings.WireColours[Settings.OnWireIndex].Colour;
+                    lines[i].endColor = Settings.WireColours[Settings.OnWireIndex].Colour;
                 }
                 else
                 {
