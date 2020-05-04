@@ -8,3 +8,5 @@ The game has 3 layers.
 - An output layer which displays 8 bits which are dependent on the previous 2 layers.
 
 The goal is to match the output layer with a predefined imutable "target" byte of 8 bits, by flipping the appropriate input bits.
+
+Colour palette feedback prototype is live at https://www.danielkorsah.com/Games/Web/bitshift.html
