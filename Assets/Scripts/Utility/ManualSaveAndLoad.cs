@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-//#if Unity_Editor
+#if Unity_Editor
 [CustomEditor(typeof(Settings))]
 public class ManualSaveAndLoad : Editor
 {
@@ -36,4 +36,4 @@ public class ManualSaveAndLoad : Editor
 
     }
 }
-//#endif
+#endif
