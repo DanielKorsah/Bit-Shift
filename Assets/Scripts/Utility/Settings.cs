@@ -94,7 +94,7 @@ public class Settings : MonoBehaviour
             {
                 if (OffWireIndex + 1 < WireColours.Count)
                 {
-                    OnWireIndex++;
+                    OffWireIndex++;
                 }
             }
 
