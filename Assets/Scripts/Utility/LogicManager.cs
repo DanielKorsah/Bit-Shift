@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LogicManager : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class LogicManager : MonoBehaviour
     private GameObject inputContainer;
     private GameObject outputContainer;
     private GameObject targetContainer;
+    private bool completed = false;
+    [SerializeField] private UnityEvent byteMatchEvent;
 
     // Start is called before the first frame update
     private void Start()
@@ -32,6 +36,7 @@ public class LogicManager : MonoBehaviour
         TargetNodes = new List<TargetBit>(targetContainer.GetComponentsInChildren<TargetBit>());
 
         //RefreshLogic();
+        byteMatchEvent.AddListener(Win);
         SetTarget();
     }
 
@@ -42,6 +47,7 @@ public class LogicManager : MonoBehaviour
         {
             t.DisplayBit();
         }
+        CheckAnswer();
     }
 
     public void RefreshLogic()
@@ -59,5 +65,26 @@ public class LogicManager : MonoBehaviour
         {
             TargetNodes[i].TargetValue = TargetByteData[i];
         }
+    }
+
+    private void CheckAnswer()
+    {
+        bool[] answerByte = new bool[8];
+        for (int i = 0; i < TargetNodes.Count; i++)
+        {
+            //construct our output array for comparisson, cast nulls to false
+            answerByte[i] = OutputByteData[i].GetValueOrDefault();
+        }
+
+        if (answerByte.SequenceEqual(TargetByteData) && !completed)
+        {
+            completed = true;
+            byteMatchEvent.Invoke();
+        }
+    }
+
+    private void Win()
+    {
+        print("Winner winner chicken dinner");
     }
 }
