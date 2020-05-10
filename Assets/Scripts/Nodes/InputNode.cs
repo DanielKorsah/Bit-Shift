@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InputNode : Node
 {
@@ -44,11 +45,13 @@ public class InputNode : Node
         {
             BitText.text = "0";
             LogicManager.InputByteData[index] = false;
+            SoundManager.FlipBitOff.Invoke();
         }
         else if (BitText.text == "0")
         {
             BitText.text = "1";
             LogicManager.InputByteData[index] = true;
+            SoundManager.FlipBitOn.Invoke();
         }
         else
         {

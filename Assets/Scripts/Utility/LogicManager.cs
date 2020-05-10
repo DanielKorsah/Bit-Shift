@@ -20,7 +20,7 @@ public class LogicManager : MonoBehaviour
     private GameObject outputContainer;
     private GameObject targetContainer;
     private bool completed = false;
-    [SerializeField] private UnityEvent byteMatchEvent;
+    private UnityEvent byteMatchEvent = new UnityEvent();
 
     // Start is called before the first frame update
     private void Start()
@@ -80,6 +80,7 @@ public class LogicManager : MonoBehaviour
         {
             completed = true;
             byteMatchEvent.Invoke();
+            SoundManager.CorrectSequence.Invoke();
         }
     }
 
